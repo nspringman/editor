@@ -183,7 +183,7 @@
             <div id="statement-input" {% if not editable %}disabled{% endif %} data-bind="writemaths: statement, tinymce_plugins: ['jmevisible','preview'], variableReferrer: {value: statement, description: 'Statement', kind: 'html'}"></div>
             <p class="help-block">
                 {% helplink 'question/reference.html#statement' subject='the question statement' %}
-                Give any introductory information the student needs. 
+                Give any introductory information the student needs.
             </p>
         </div>
 
@@ -219,11 +219,11 @@
                                 </p>
                             </div>
                             <div data-bind="visible: templateType().id=='number'">
-                                <input {% if not editable %}disabled{% endif %} class="form-control" type="text" data-bind="textInput: templateTypeValues.number.value, autosize: {max: 500, min: 30, padding: 30, value: templateTypeValues.number.value}"/> 
+                                <input {% if not editable %}disabled{% endif %} class="form-control" type="text" data-bind="textInput: templateTypeValues.number.value, autosize: {max: 500, min: 30, padding: 30, value: templateTypeValues.number.value}"/>
                                 <p class="help-block">(a number)</p>
                             </div>
                             <div data-bind="visible: templateType().id=='range'" class="form-inline">
-                                Numbers between 
+                                Numbers between
                                 <input {% if not editable %}disabled{% endif %} class="form-control" type="text" data-bind="textInput: templateTypeValues.range.min, autosize: {max: 500, min: 30, padding: 10, value: templateTypeValues.range.min}"/>
                                 and
                                 <input {% if not editable %}disabled{% endif %} class="form-control" type="text" data-bind="textInput: templateTypeValues.range.max, autosize: {max: 500, min: 30, padding: 10, value: templateTypeValues.range.max}"/>
@@ -231,7 +231,7 @@
                                 <input {% if not editable %}disabled{% endif %} class="form-control" type="text" data-bind="textInput: templateTypeValues.range.step, autosize: {max: 500, min: 30, padding: 10, value: templateTypeValues.range.step}"/>
                             </div>
                             <div data-bind="visible: templateType().id=='randrange'" class="form-inline">
-                                A random number between 
+                                A random number between
                                 <input {% if not editable %}disabled{% endif %} class="form-control" type="text" data-bind="textInput: templateTypeValues.randrange.min, autosize: {max: 500, min: 30, padding: 10, value: templateTypeValues.randrange.min}"/>
                                 and
                                 <input {% if not editable %}disabled{% endif %} class="form-control" type="text" data-bind="textInput: templateTypeValues.randrange.max, autosize: {max: 500, min: 30, padding: 10, value: templateTypeValues.randrange.max}"/>
@@ -239,7 +239,7 @@
                                 <input {% if not editable %}disabled{% endif %} class="form-control" type="text" data-bind="textInput: templateTypeValues.randrange.step, autosize: {max: 500, min: 30, padding: 10, value: templateTypeValues.randrange.step}"/>
                             </div>
                             <div data-bind="visible: templateType().id=='string'">
-                                <input {% if not editable %}disabled{% endif %} class="form-control" type="text" data-bind="textInput: templateTypeValues.string.value, autosize: {max: 500, min: 30, padding: 10, value: templateTypeValues.string.value}"/> 
+                                <input {% if not editable %}disabled{% endif %} class="form-control" type="text" data-bind="textInput: templateTypeValues.string.value, autosize: {max: 500, min: 30, padding: 10, value: templateTypeValues.string.value}"/>
                                 <p class="help-block">(text string)</p>
                                 <p><label><input type="checkbox" data-bind="checked: templateTypeValues.string.isTemplate" {% if not editable %}disabled{% endif %}> Is this a template?</p>
                             </div>
@@ -367,7 +367,7 @@
                             </tbody>
                         </table>
                         <div class="panel-body empty-receiver" data-bind="visible: variables().length==0, sortable: {
-                            foreach: $data.receivedVariables, 
+                            foreach: $data.receivedVariables,
                             options: {
                                 group: 'variables'
                             }
@@ -468,7 +468,7 @@
                                 }">
                                     <div class="part-container" data-bind="css: {open: showChildren()}">
                                         <a role="button" class="list-group-item part root" data-bind="
-                                            click: $parent.currentPart, 
+                                            click: $parent.currentPart,
                                             css: {
                                                 active: $data==$parent.currentPart() || ($parent.addingPart() && $data==$parent.addingPart().parent)
                                             }
@@ -483,7 +483,7 @@
                                             <h4 class="children-header" data-bind="visible: canAddAlternative">Alternative answers</h4>
                                             <div class="alternatives" data-bind="visible: alternatives().length, sortable: { foreach: alternatives, options: {group: path()+'alternatives', handle: '.alternative'} }">
                                                 <a role="button" class="list-group-item part alternative" data-bind="
-                                                    click: $root.currentPart, 
+                                                    click: $root.currentPart,
                                                     css: {active: $data==$root.currentPart()}
                                                 ">
                                                     <strong data-bind="text: name"></strong>
@@ -496,7 +496,7 @@
                                             <div class="gaps" data-bind="visible: gaps().length, sortable: { foreach: gaps, options: {group: path()+'gaps', handle: '.gap'} }">
                                                 <div class="part-container" data-bind="css: {open: showChildren()}">
                                                     <a role="button" class="list-group-item part gap" data-bind="
-                                                        click: $parents[1].currentPart, 
+                                                        click: $parents[1].currentPart,
                                                         css: {active: $data==$parents[1].currentPart()}
                                                     ">
                                                         <strong data-bind="text: header"></strong>
@@ -508,7 +508,7 @@
                                                         <h4 class="children-header" data-bind="visible: canAddAlternative">Alternative answers</h4>
                                                         <div class="alternatives" data-bind="visible: alternatives().length, sortable: { foreach: alternatives, options: {group: path()+'alternatives', handle: '.alternative'} }">
                                                             <a role="button" class="list-group-item part alternative" data-bind="
-                                                                click: $root.currentPart, 
+                                                                click: $root.currentPart,
                                                                 css: {active: $data==$root.currentPart()}
                                                             ">
                                                                 <strong data-bind="text: name"></strong>
@@ -528,7 +528,7 @@
                                             <div class="steps" data-bind="visible: steps().length, sortable: { foreach: steps, options: {group: path()+'steps', handle: '.step'} }">
                                                 <div class="part-container" data-bind="css: {open: showChildren()}">
                                                     <a role="button" class="list-group-item part step" data-bind="
-                                                        click: $parents[1].currentPart, 
+                                                        click: $parents[1].currentPart,
                                                         css: {active: $data==$parents[1].currentPart()}
                                                     ">
                                                         <strong data-bind="text: header"></strong>
@@ -539,7 +539,7 @@
                                                         <h4 class="children-header" data-bind="visible: canAddAlternative">Alternative answers</h4>
                                                         <div class="alternatives" data-bind="visible: alternatives().length, sortable: { foreach: alternatives, options: {group: path()+'alternatives', handle: '.alternative'} }">
                                                             <a role="button" class="list-group-item part alternative" data-bind="
-                                                                click: $root.currentPart, 
+                                                                click: $root.currentPart,
                                                                 css: {active: $data==$root.currentPart()}
                                                             ">
                                                                 <strong data-bind="text: name"></strong>
@@ -592,7 +592,7 @@
             <div id="advice-input" {% if not editable %}disabled{% endif %} data-bind="writemaths: advice, tinymce_plugins: ['jmevisible','preview']"></div>
             <p class="help-block">
                 {% helplink 'question/reference.html#advice' subject='the advice section' %}
-                Give a worked solution to the whole question. 
+                Give a worked solution to the whole question.
             </p>
         </div>
 
@@ -615,7 +615,7 @@
                                 <li class="extension">
                                     <label>
                                         <span class="checkbox"><input type="checkbox" data-bind="checked: used_or_required, disable: !item_json.editable || required(), attr: { title: required() ? 'This extension is required by one or more question parts' : '' }"></span>
-                                        <span data-bind="text:name"></span> 
+                                        <span data-bind="text:name"></span>
                                         <a data-bind="if: url, attr: {href:url, title: 'Documentation on the '+name+' extension'}" target="_blank"><small class="glyphicon glyphicon-book"></small></a>
                                         {% if not user.is_anonymous %}<a data-bind="if: author=={{user.pk}}, attr: {href: edit_url, title: 'Edit the '+name+' extension'}" target="_blank"><small class="glyphicon glyphicon-pencil"></small></a>{% endif %}
                                     </label>
@@ -662,55 +662,68 @@
                         <ul class="list-group">
                             <!-- ko foreach: {data: functions, afterAdd: Editor.afterAdd} -->
                             <li class="function list-group-item">
-                                <div class="row">
-                                    <div class="form-group col-sm-8">
-                                        <label>
-                                            Name {% helplink 'question/reference.html#term-name' %}
-                                        </label>
-                                        <input {% if not editable %}disabled{% endif %} class="form-control" placeholder="Name" type="text" data-bind="textInput: name">
-                                    </div>
-                                    <div class="form-group col-sm-3">
-                                        <label>
-                                            Language {% helplink 'question/reference.html#term-language' subject='languages' %}
-                                        </label>
-                                        <select {% if not editable %}disabled{% endif %} class="form-control" data-bind="options: languages, value: language"></select>
-                                    </div>
-                                    <div class="col-sm-1">
-                                        {% if editable %}<button type="button" class="delete btn btn-sm btn-link pull-right" data-bind="click:remove" title="Delete this function"><span class="glyphicon glyphicon-remove"></span></button>{% endif %}
-                                    </div>
+                                <div class="" data-bind="visible: functionExpanded"> <!-- wrap observable/hidden in seperate div -->
+                                  <div class="row">
+                                      <div class="form-group col-sm-8">
+                                          <label>
+                                              Name {% helplink 'question/reference.html#term-name' %}
+                                          </label>
+                                          <input {% if not editable %}disabled{% endif %} class="form-control" placeholder="Name" type="text" data-bind="textInput: name">
+                                      </div>
+                                      <div class="form-group col-sm-3">
+                                          <label>
+                                              Language {% helplink 'question/reference.html#term-language' subject='languages' %}
+                                          </label>
+                                          <select {% if not editable %}disabled{% endif %} class="form-control" data-bind="options: languages, value: language"></select>
+                                      </div>
+                                      <div class="col-sm-1">
+                                          <button type="button" class="btn btn-sm btn-link pull-right" title="Collapse Function" data-bind="click: collapse(true)"><span class="glyphicon glyphicon-chevron-up"></span></button>
+                                          {% if editable %}<button type="button" class="delete btn btn-sm btn-link pull-right" data-bind="click:remove" title="Delete this function"><span class="glyphicon glyphicon-remove"></span></button>{% endif %}
+                                      </div>
+                                  </div>
+                                  <div class="form-group form-inline">
+                                      <label>Type</label>
+                                      <ul class="list-inline parameters">
+                                          <!-- ko foreach: parameters -->
+                                          <li class="parameter">
+                                              <div class="input-group">
+                                                  <input {% if not editable %}disabled{% endif %} placeholder="Name" type="text" class="form-control" data-bind="textInput: name, autosize: name">
+                                                  <span class="input-group-btn">
+                                                      <select {% if not editable %}disabled{% endif %} class="btn btn-info" data-bind="options: $parent.types, value: type" title"Type of this parameter"></select>
+                                                      {% if editable %}<button type="button" class="btn btn-danger" title="Remove this parameter" data-bind="click: remove"><span class="glyphicon glyphicon-remove"></span></button>{% endif %}
+                                                  </span>
+                                              </div>
+                                          </li>
+                                          <!-- /ko -->
+                                          {% if editable %}
+                                          <li>
+                                              <button type="button" class="btn btn-xs btn-info" title="Add a parameter" data-bind="click: addParameter"><span class="glyphicon glyphicon-plus"></span></button>
+                                          </li>
+                                          {% endif %}
+                                          <li class="output">
+                                              <select {% if not editable %}disabled{% endif %} class="form-control btn-info" data-bind="options: types, value: type" title="Output type"></select>
+                                          </li>
+                                      </ul>
+                                  </div>
+                                  <div class="form-group">
+                                      <label>
+                                          Definition:
+                                      </label>
+                                      <textarea {% if not editable %}disabled{% endif %} data-bind="codemirror: definition, codemirrorMode: language"></textarea>
+                                      <div class="alert alert-danger" data-bind="visible: error().length>0" aria-live="polite">
+                                          <span class="glyphicon glyphicon-alert"></span> <span class="errortext" data-bind="html: error"></span>
+                                      </div>
+                                  </div>
                                 </div>
-                                <div class="form-group form-inline">
-                                    <label>Type</label>
-                                    <ul class="list-inline parameters">
-                                        <!-- ko foreach: parameters -->
-                                        <li class="parameter">
-                                            <div class="input-group">
-                                                <input {% if not editable %}disabled{% endif %} placeholder="Name" type="text" class="form-control" data-bind="textInput: name, autosize: name">
-                                                <span class="input-group-btn">
-                                                    <select {% if not editable %}disabled{% endif %} class="btn btn-info" data-bind="options: $parent.types, value: type" title"Type of this parameter"></select>
-                                                    {% if editable %}<button type="button" class="btn btn-danger" title="Remove this parameter" data-bind="click: remove"><span class="glyphicon glyphicon-remove"></span></button>{% endif %}
-                                                </span>
-                                            </div>
-                                        </li>
-                                        <!-- /ko -->
-                                        {% if editable %}
-                                        <li>
-                                            <button type="button" class="btn btn-xs btn-info" title="Add a parameter" data-bind="click: addParameter"><span class="glyphicon glyphicon-plus"></span></button>
-                                        </li>
-                                        {% endif %}
-                                        <li class="output">
-                                            <select {% if not editable %}disabled{% endif %} class="form-control btn-info" data-bind="options: types, value: type" title="Output type"></select>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div clas="form-group">
-                                    <label>
-                                        Definition:
-                                    </label>
-                                    <textarea {% if not editable %}disabled{% endif %} data-bind="codemirror: definition, codemirrorMode: language"></textarea>
-                                    <div class="alert alert-danger" data-bind="visible: error().length>0" aria-live="polite">
-                                        <span class="glyphicon glyphicon-alert"></span> <span class="errortext" data-bind="html: error"></span>
+                                <div class="" data-bind="visible: functionCollapsed">
+                                  <div class="row">
+                                    <div class="col-sm-8">
+                                      <span data-bind="text: getName"></span>
                                     </div>
+                                    <div class="col-sm-4">
+                                      <button type="button" class="btn btn-sm btn-link pull-right" title="Expand Function" data-bind="click: collapse(false)"><span class="glyphicon glyphicon-chevron-down"></span></button>
+                                    </div>
+                                  </div>
                                 </div>
                             </li>
                             <!-- /ko -->

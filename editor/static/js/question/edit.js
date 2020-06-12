@@ -79,7 +79,7 @@ $(document).ready(function() {
                 $(element).modal('hide');
             }
         }
-    };                 
+    };
 
 
     ko.components.register('part-type-modal', {
@@ -556,8 +556,8 @@ $(document).ready(function() {
                             }
                         }
                         v.references.push({
-                            description: description, 
-                            icons: icons, 
+                            description: description,
+                            icons: icons,
                             go: go
                         });
                     }
@@ -917,7 +917,7 @@ $(document).ready(function() {
                 }
                 if(v.locked.peek()) {
                     scope.variables[v.name()] = v.value();
-                } 
+                }
                 try {
                     var tree = jme.compile(v.definition());
                     if(!tree) {
@@ -1366,10 +1366,10 @@ $(document).ready(function() {
         changeImageAttributes: function() {
             $(this.imageModal.selectedNode)
                 .css({
-                    width: this.imageModal.width(), 
+                    width: this.imageModal.width(),
                     height: this.imageModal.height()
                 });
-            
+
             $(this.imageModal.selectedNode)
                 .removeAttr('data-mce-style')
             $(this.imageModal.selectedNode)
@@ -1387,7 +1387,7 @@ $(document).ready(function() {
         changeIframeAttributes: function() {
             $(this.iframeModal.selectedNode)
                 .css({
-                    width: this.iframeModal.width(), 
+                    width: this.iframeModal.width(),
                     height: this.iframeModal.height()
                 })
                 .removeAttr('data-mce-style')
@@ -1712,7 +1712,7 @@ $(document).ready(function() {
                         }
                         return treeToJME(Numbas.jme.compile('['+values.join(',')+']'));
                     case 'list of strings':
-                        var strings = val.values().map(function(s){ 
+                        var strings = val.values().map(function(s){
                             var tok = wrapValue(s);
                             tok.safe = false;
                             return tok;
@@ -1746,8 +1746,8 @@ $(document).ready(function() {
                 }
                 var out = {
                     name: name,
-                    obj: obj, 
-                    notdefined: !obj, 
+                    obj: obj,
+                    notdefined: !obj,
                     title: !obj ? 'Not defined. Click to add this variable.' : '',
                     setCurrent: function() {
                         if(obj) {
@@ -2009,17 +2009,30 @@ $(document).ready(function() {
     function CustomFunction(q,data) {
         this.name = ko.observable('');
         this.types = jmeTypes;
-        this.parameters = ko.observableArray([])
+        this.parameters = ko.observableArray([]);
         this.type = ko.observable('number');
         this.definition = ko.observable('');
         this.languages = ['jme','javascript'];
         this.language = ko.observable('jme');
         this.error = ko.observable('');
+        this.functionExpanded = ko.observable(true);
+        this.functionCollapsed = ko.observable(false);
 
         this.remove = function() {
             if(confirm("Remove this function?"))
                 q.functions.remove(this);
         };
+
+        this.collapse = function(c){
+          this.functionExpanded(!c);
+          this.functionCollapsed(c);
+        };
+
+        this.getName = ko.computed(function(){
+          if(this.name()) return this.name();
+          else return 'Unnamed Function';
+        }, this);
+        
         if(data)
             this.load(data);
     }
@@ -2562,12 +2575,12 @@ $(document).ready(function() {
             gapFill.setType('gapfill');
 
             this.parentList.splice(this.parentList.indexOf(this),1,gapFill);
-            
+
             gapFill.prompt(this.prompt()+'\n<p>[[0]]</p>');
             this.prompt('');
 
             gapFill.steps(this.steps());
-            gapFill.steps().map(function(step){ 
+            gapFill.steps().map(function(step){
                 step.parent(gapFill);
                 step.parentList = gapFill.steps;
             });
@@ -2752,7 +2765,7 @@ $(document).ready(function() {
                         p.variableReplacements.push(vr);
                     });
                 }
-                
+
                 if(data.nextParts) {
                     data.nextParts.map(function(d) {
                         var np = new NextPart(p,d);
@@ -3051,7 +3064,7 @@ $(document).ready(function() {
             if(this.editing()) {
                 if(this.part.type().name=='gapfill') {
                     this.answer({
-                        valid: this.part.gaps().every(function(g){return g.marking_test().answer().valid}), 
+                        valid: this.part.gaps().every(function(g){return g.marking_test().answer().valid}),
                         value: this.part.gaps().map(function(g) {
                             return g.marking_test().answer().value;
                         })
@@ -3141,7 +3154,7 @@ $(document).ready(function() {
             var p = this.runtime_part();
             return {valid: true, value: p.getCorrectAnswer(p.getScope())};
         },this);
-        
+
         // When something changes, run the marking script and store the result in `this.result`
         this.mark = function() {
             mt.answer();
@@ -3239,7 +3252,7 @@ $(document).ready(function() {
                     } else {
                         note.missing(missing);
                     }
-                } 
+                }
                 existing_notes[note.name] = note;
             });
 
@@ -3372,7 +3385,7 @@ $(document).ready(function() {
             }
         },
 
-        // Update the "expected values" for each note with the values 
+        // Update the "expected values" for each note with the values
         // from the last time the script was run
         setExpected: function() {
             this.notes().forEach(function(note) {
